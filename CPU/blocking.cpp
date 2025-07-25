@@ -50,7 +50,7 @@ void matrix_mult(dataType *A, dataType *B, dataType *C){
 /* Function to randomly initize an array */
 void init_arr(dataType *arr) {
 	srand(SEED);
-	for(int i =0; i<SIZE; i++){
+	for(int i =0; i<SIZE*SIZE; i++){
 		arr[i] = rand() % (SIZE + 1); 
 	}
 }
@@ -61,6 +61,10 @@ int main(){
 	dataType* C = new dataType[SIZE*SIZE];
 	init_arr(A);
 	init_arr(B);
+	// Initialize C to 0
+    for (int i = 0; i < SIZE * SIZE; ++i) {
+        C[i] = 0.0;
+    }
 
 	for (int i = 0; i < SIZE * SIZE; ++i) C[i] = 0;
 
